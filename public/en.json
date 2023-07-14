@@ -1,0 +1,11 @@
+{
+    "welcome": "Welcome",
+    "about": "This is a web-based project that supports language toggle between English and Bangla.",
+    "features": {
+      "title": "Features",
+      "feature1": "Responsive design",
+      "feature2": "Easy customization",
+      "feature3": "Multi-language support"
+    }
+  }
+  
