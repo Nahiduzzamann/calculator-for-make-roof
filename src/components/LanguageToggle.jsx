@@ -12,7 +12,7 @@ const LanguageToggle = () => {
 
   return (
     <>
-      {language ? <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleLanguageChange("en")}>Translate to English</button>:<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleLanguageChange("bn")}>বাংলা কোরুন</button>} 
+      {language ? <button className="bg-gradient-to-r from-gray-800 via-gray-700 to-gray-500 hover:to-gray-800 hover:from-gray-500 text-white py-2 px-4 rounded" onClick={() => handleLanguageChange("en")}>Translate to English</button>:<button className="bg-gradient-to-r from-gray-800 via-gray-700 to-gray-500 hover:to-gray-800 hover:from-gray-500 text-white py-2 px-4 rounded" onClick={() => handleLanguageChange("bn")}>বাংলাই দেখুন</button>} 
     </>
   );
 };
