@@ -11,9 +11,9 @@ const LanguageToggle = () => {
   };
 
   return (
-    <div className="bg-blue-500 w-40 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-      {language ? <button onClick={() => handleLanguageChange("en")}>Translate English</button>:<button onClick={() => handleLanguageChange("bn")}>বাংলা কোরুন</button>} 
-    </div>
+    <>
+      {language ? <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleLanguageChange("en")}>Translate to English</button>:<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleLanguageChange("bn")}>বাংলা কোরুন</button>} 
+    </>
   );
 };
 

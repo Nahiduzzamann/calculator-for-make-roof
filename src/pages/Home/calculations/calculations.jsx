@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
+import LanguageToggle from '../../../components/LanguageToggle';
 
-const TranslatedContent = () => {
+const Calculations = () => {
   const { t } = useTranslation();
 
   return (
@@ -13,8 +14,9 @@ const TranslatedContent = () => {
         <li>{t('features.feature2')}</li>
         <li>{t('features.feature3')}</li>
       </ul>
+      <LanguageToggle></LanguageToggle>
     </div>
   );
 };
 
-export default TranslatedContent;
+export default Calculations;
