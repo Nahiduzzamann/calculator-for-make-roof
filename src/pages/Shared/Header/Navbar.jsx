@@ -88,38 +88,38 @@ const Navbar = () => {
               >
                 <li className="text-white  hover:bg-gray-700 px-3 py-2 rounded-md lgxedium">
                   <NavLink onClick={handleDropdown} to="/">
-                    Home
+                  {t('home')}
                   </NavLink>
                 </li>
                 <li className="text-white  hover:bg-gray-700 px-3 py-2 rounded-md lgxedium">
                   <NavLink onClick={handleDropdown} to="/about">
-                    About
+                  {t('about')}
                   </NavLink>
                 </li>
 
                 <li className="text-white  hover:bg-gray-700 px-3 py-2 rounded-md lgxedium">
                   <NavLink onClick={handleDropdown} to="/contact">
-                    Contact
+                  {t('contact')}
                   </NavLink>
                 </li>
               </ul>
             )}
           </div>
-          <Link className="btn btn-ghost text-white normal-case text-xl">
+          <Link className="btn btn-ghost text-white normal-case text-base lg:text-xl">
             {t("logo")}
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li className="text-white  hover:bg-gray-700 py-2 rounded-md text-lg ">
-              <NavLink to="/">Home</NavLink>
+              <NavLink to="/">{t('home')}</NavLink>
             </li>
             <li className="text-white  hover:bg-gray-700 py-2 rounded-md text-lg ">
-              <NavLink to="/about">About</NavLink>
+              <NavLink to="/about">{t('about')}</NavLink>
             </li>
 
             <li className="text-white  hover:bg-gray-700 py-2 rounded-md text-lg ">
-              <NavLink to="/contact">Contact</NavLink>
+              <NavLink to="/contact">{t('contact')}</NavLink>
             </li>
           </ul>
         </div>
@@ -152,9 +152,9 @@ const Navbar = () => {
             <>
               <Link
                 to="login"
-                className="text-white  hover:bg-gray-700 px-3 py-2 rounded-md lgxedium"
+                className="text-white  hover:bg-gray-700 px-2 py-2 rounded-md ml-2 text-xs lg:text-xl"
               >
-                Log In
+                {t('login')}
               </Link>
             </>
           )}
