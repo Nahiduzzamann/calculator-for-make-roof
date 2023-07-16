@@ -1,4 +1,4 @@
-import { Link, NavLink, Navigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import LanguageToggle from "../../../components/LanguageToggle";
 import { AuthContext } from './../../../provider/AuthProvider';
@@ -9,6 +9,9 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenToggleProfile, setIsOpenToggleProfile] = useState(false);
   const { t } = useTranslation();
+  const navigate = useNavigate()
+  const from = location.state?.from?.pathname || '/'
+
 
   // let user = false;
   const toggleMenu = () => {
@@ -25,7 +28,7 @@ const Navbar = () => {
   const handleLogout = () => {
       logOut()
           .then(() => {
-              Navigate(from, { replace: true });
+            navigate(from, { replace: true });
           })
           .catch((error) => console.log(error.message));
   };
@@ -134,7 +137,7 @@ const Navbar = () => {
                   className="btn btn-ghost btn-circle avatar"
                   role="button"
                 >
-                  <img src={proPic} alt="" className="h-8 w-8 rounded-full" />
+                  <img src={proPic} alt="profile_Pic" className="ml-4 h-5 lg:h-8 w-5 lg:w-8 rounded-full" />
                 </div>
                 {isOpenToggleProfile && (
                   <ul
@@ -151,7 +154,7 @@ const Navbar = () => {
           ) : (
             <>
               <Link
-                to="login"
+                to="/login"
                 className="text-white  hover:bg-gray-700 px-2 py-2 rounded-md ml-2 text-xs lg:text-xl"
               >
                 {t('login')}
