@@ -9,6 +9,7 @@ import bnTranslation from "../public/bn.json";
 import Main from "./layout/Main";
 import Home from "./pages/Home/Home/Home";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
+import AuthProvider from "./provider/AuthProvider";
 
 const router = createBrowserRouter([
   {
@@ -39,10 +40,12 @@ i18n.init({
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    <AuthProvider>
     <div className="bg-gradient-to-r from-gray-700 via-gray-500 to-gray-300 m-0">
       <I18nextProvider i18n={i18n}>
         <RouterProvider router={router} />
       </I18nextProvider>
     </div>
+    </AuthProvider>
   </React.StrictMode>
 );

@@ -1,16 +1,16 @@
 import { Link, NavLink, Navigate } from "react-router-dom";
-import { AuthContext } from "../../../provider/AuthProvider";
-import { useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import LanguageToggle from "../../../components/LanguageToggle";
+import { AuthContext } from './../../../provider/AuthProvider';
+import { useContext, useState } from "react";
 
 const Navbar = () => {
-  // const { user, logOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenToggleProfile, setIsOpenToggleProfile] = useState(false);
   const { t } = useTranslation();
 
-  let user = false;
+  // let user = false;
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -22,13 +22,13 @@ const Navbar = () => {
     setIsOpenToggleProfile(!isOpenToggleProfile);
   };
 
-  // const handleLogout = () => {
-  //     logOut()
-  //         .then(() => {
-  //             Navigate(from, { replace: true });
-  //         })
-  //         .catch((error) => console.log(error.message));
-  // };
+  const handleLogout = () => {
+      logOut()
+          .then(() => {
+              Navigate(from, { replace: true });
+          })
+          .catch((error) => console.log(error.message));
+  };
 
   const [proPic, setProPic] = useState(
     "https://i.ibb.co/0Q4M1MX/blank-img.jpg"
