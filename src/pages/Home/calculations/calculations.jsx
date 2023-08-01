@@ -49,7 +49,7 @@ const Calculations = () => {
               {calculation !== "" ? (
                 <div>
                   {/* <div> সিমেন্ট এর পরিমান: {Math.ceil(amountOfCementBags)} ব্যাগ</div> */}
-                  {/* <div> বালু এর পরিমান: {Math.ceil(calculation)} ঘনফিট/সিএফটি</div> */}
+                  {/* <div> বালু এর পরিমান: {Math.ceil(calculation)} ঘনফুট/সিএফটি</div> */}
                   <div> খোয়া এর পরিমান: {Math.ceil(calculation)}  টি ইট থেকে তৈরি খোয়া</div>
                 </div>
               ) : (
