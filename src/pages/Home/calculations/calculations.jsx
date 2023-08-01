@@ -3,18 +3,25 @@ import { useTranslation } from "react-i18next";
 
 const Calculations = () => {
   const { t } = useTranslation();
-  const [number1, setNumber1] = useState(0);
-  const [number2, setNumber2] = useState(0);
-  const [sum, setSum] = useState(0);
-  const [show, setShow] = useState(false);
+  const [number1, setNumber1] = useState('');
+  const [number2, setNumber2] = useState('');
+  const [sum, setSum] = useState('');
 
+  const handleNumberChange = (e, setNumber) => {
+    const value = e.target.value;
+    setNumber(value);
+  };
   const calculateSum = () => {
-    const sumValue = number1 + number2;
-    setSum(sumValue);
-    if (sum !== 0) {
-      setShow(true);
+    const num1 = parseInt(number1, 10);
+    const num2 = parseInt(number2, 10);
+
+    if (!isNaN(num1) && !isNaN(num2)) {
+      setSum(num1 + num2);
+    } else {
+      setSum("");
     }
   };
+
   return (
     <div className="container mx-auto">
       <h1 className="text-xl lg:text-3xl pt-4 pb-4 text-white">
@@ -24,11 +31,11 @@ const Calculations = () => {
         <div className="hero min-h-screen">
           <div className="hero-content flex-col lg:flex-row-reverse">
             <div className="text-center lg:text-left">
-              {show ? (
+              {sum !== '' ? (
                 <div> Sum: {sum} </div>
               ) : (
                 <div>
-                  <h1 className="text-5xl font-bold">Calculate now!</h1>
+                  <h1 className="text-5xl font-bold text-white">{t("calculate.title")}</h1>
                   <p className="py-6">
                     Provident cupiditate voluptatem et in. Quaerat fugiat ut
                     assumenda excepturi exercitationem quasi. In deleniti eaque
@@ -48,7 +55,8 @@ const Calculations = () => {
                     placeholder="Enter a number"
                     className="input input-bordered"
                     value={number1}
-                    onChange={(e) => setNumber1(parseInt(e.target.value, 10))}
+                    onChange={(e) => handleNumberChange(e, setNumber1)}
+                    required
                   />
                 </div>
                 <div className="form-control">
@@ -60,7 +68,8 @@ const Calculations = () => {
                     placeholder="Enter a number"
                     className="input input-bordered"
                     value={number2}
-                    onChange={(e) => setNumber2(parseInt(e.target.value, 10))}
+                    onChange={(e) => handleNumberChange(e, setNumber2)}
+                    required
                   />
                 </div>
                 <div className="form-control mt-6">
