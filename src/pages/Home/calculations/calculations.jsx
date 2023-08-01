@@ -6,10 +6,12 @@ const Calculations = () => {
   const [cement, setCement] = useState(1);
   const [sand, setSand] = useState(2);
   const [gravel, setGravel] = useState(4);
+  const [rod, setRod] = useState(5);
+  const [rodD, setRodD] = useState(12);
   const [number1, setNumber1] = useState("");
   const [number2, setNumber2] = useState("");
   const [number3, setNumber3] = useState("");
-  const [calculation, setCalculation] = useState("");
+  const [calculation, setCalculation] = useState(null);
 
   const handleNumberChange = (e, setNumber) => {
     const value = e.target.value;
@@ -21,7 +23,7 @@ const Calculations = () => {
     const thickness = parseInt(number3, 10);
 
     if (!isNaN(length) && !isNaN(width) && !isNaN(thickness)) {
-      const roofArea = length * width;
+      // const roofArea = length * width;
       const roofVolume = length * width * (thickness / 12); // (৫/১২ ইঞ্চি কে ফিট হিসেবে)
       const roofWetVolume = roofVolume * 1.5;
       const sumOfRatios = cement + sand + gravel;
@@ -30,10 +32,14 @@ const Calculations = () => {
       const amountOfSand = (roofWetVolume * sand) / sumOfRatios;
       const amountOfGravel = (roofWetVolume * gravel) / sumOfRatios;
       const amountOfBricks = amountOfGravel / 0.068; //(১ টি ইট = ০.০৬৮ ঘনফিট/সিএফটি)
-
-      setCalculation(amountOfBricks);
+      const amountOfRod = ((((length * 12) / 5)+1)*width) + ((((width * 12) / 5)+1)*length); //feet
+      const weightOfRod = ((rodD * rodD) / 532.2) * amountOfRod;
+      const calculation ={
+        amountOfCementBags,amountOfSand,amountOfBricks,weightOfRod
+      }
+      setCalculation(calculation);
     } else {
-      setCalculation("");
+      setCalculation(null);
     }
   };
 
@@ -46,11 +52,12 @@ const Calculations = () => {
         <div className="hero min-h-screen">
           <div className="hero-content flex-col lg:flex-row-reverse">
             <div className="text-center lg:text-left">
-              {calculation !== "" ? (
-                <div>
-                  {/* <div> সিমেন্ট এর পরিমান: {Math.ceil(amountOfCementBags)} ব্যাগ</div> */}
-                  {/* <div> বালু এর পরিমান: {Math.ceil(calculation)} ঘনফুট/সিএফটি</div> */}
-                  <div> খোয়া এর পরিমান: {Math.ceil(calculation)}  টি ইট থেকে তৈরি খোয়া</div>
+              {calculation !== null ? (
+                <div className="text-white text-xl lg:text-2xl">
+                  <div> সিমেন্ট এর পরিমান: <span className="text-red-500">{Math.ceil(calculation.amountOfCementBags)} ব্যাগ</span></div>
+                  <div> বালু এর পরিমান: <span className="text-red-500">{Math.ceil(calculation.amountOfSand)} ঘনফুট/সিএফটি</span></div>
+                  <div>খোয়া এর পরিমান: <span className="text-red-500">{Math.ceil(calculation.amountOfBricks)} টি ইট থেকে তৈরি খোয়া</span></div>
+                  <div>মোট রডের পরিমান: <span className="text-red-500">{Math.ceil(calculation.weightOfRod)} কেজি</span> | <span className="text-red-300">(আরও ৫-১০% অপচয় এর জন্য বাড়তি রডের দরকার হবে)</span></div>
                 </div>
               ) : (
                 <div>
@@ -138,6 +145,34 @@ const Calculations = () => {
                       onChange={(e) => setGravel(parseInt(e.target.value, 10))}
                     />
                   </div>
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text text-2xl font-bold">
+                      {t("form.field5")}
+                    </span>
+                  </label>
+                  <input
+                    type="number"
+                    placeholder={t("form.fieldPlaceholder")}
+                    className="input input-bordered"
+                    value={rod}
+                    onChange={(e) => setRod(parseInt(e.target.value, 10))}
+                  />
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text text-2xl font-bold">
+                      {t("form.field6")}
+                    </span>
+                  </label>
+                  <input
+                    type="number"
+                    placeholder={t("form.fieldPlaceholder")}
+                    className="input input-bordered"
+                    value={rodD}
+                    onChange={(e) => setRodD(parseInt(e.target.value, 10))}
+                  />
                 </div>
                 <div className="form-control mt-6">
                   <button className="btn btn-primary" onClick={calculate}>

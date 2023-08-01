@@ -18,6 +18,8 @@
       "field2": "Width of roof (Feet)",
       "field3": "Thickness of roof (Inches)",
       "field4": "Cement, Sand and Gravel ratio (cement: sand: gravel)",
+      "field5": "Rod-to-Rod Installation Distance (Inches)",
+      "field6": "How many mm rod?",
       "fieldPlaceholder": "Enter Positive Integer Number",
       "btn":"Calculate"
     }
