@@ -45,9 +45,7 @@ const Calculations = () => {
 
   return (
     <div className="container mx-auto">
-      <h1 className="text-2xl lg:text-3xl pt-4 pb-4 text-white">
-        {t("heading")}
-      </h1>
+      
       <div>
         <div className="hero min-h-screen">
           <div className="hero-content flex-col lg:flex-row-reverse">
@@ -70,7 +68,7 @@ const Calculations = () => {
                 </div>
               )}
             </div>
-            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <div className="card flex-shrink-0 w-full max-w-xl shadow-2xl bg-base-100">
               <div className="card-body">
                 <div className="form-control">
                   <label className="label">

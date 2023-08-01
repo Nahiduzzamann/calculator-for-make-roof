@@ -15,6 +15,9 @@ const Banner = () => {
       <div className="hero-content text-center text-neutral-content">
         <div className="max-w-md">
           <h1 className="mb-5 text-5xl font-bold">{t('banner.title')}</h1>
+          <h1 className="text-2xl lg:text-3xl mt-8 lg:mt-10 text-white text-center">
+        {t("heading")}
+      </h1>
           <p className="mb-5">{t('banner.descriptions')}</p>
           {/* <button className="btn btn-primary">Get Started</button> */}
         </div>
