@@ -11,7 +11,14 @@
     },
     "calculate":{
       "title": "Calculate now!!",
-      "descriptions": ""
+      "descriptions": "Please fill up all field very carefully. Set values according to units"
+    },
+    "form":{
+      "field1": "Length of roof (Feet)",
+      "field2": "Width of roof (Feet)",
+      "field3": "Thickness of roof (Inches)",
+      "fieldPlaceholder": "Enter Positive Integer Number",
+      "btn":"Calculate"
     }
   }
   
