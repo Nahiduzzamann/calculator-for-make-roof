@@ -46,7 +46,7 @@ i18n.init({
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-    <div className="bg-gradient-to-r from-gray-700 via-gray-500 to-gray-300 m-0">
+    <div className="bg-gradient-to-r from-[#253898] via-[#253898] to-[#5737D6] m-0">
       <I18nextProvider i18n={i18n}>
         <RouterProvider router={router} />
       </I18nextProvider>
