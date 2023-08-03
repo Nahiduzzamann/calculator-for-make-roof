@@ -52,10 +52,10 @@ const Calculations = () => {
             <div className="text-center lg:text-left">
               {calculation !== null ? (
                 <div className="text-white text-xl lg:text-2xl">
-                  <div> সিমেন্ট এর পরিমান: <span className="text-red-500">{Math.ceil(calculation.amountOfCementBags)} ব্যাগ</span></div>
-                  <div> বালু এর পরিমান: <span className="text-red-500">{Math.ceil(calculation.amountOfSand)} ঘনফুট/সিএফটি</span></div>
-                  <div>খোয়া এর পরিমান: <span className="text-red-500">{Math.ceil(calculation.amountOfBricks)} টি ইট থেকে তৈরি খোয়া</span></div>
-                  <div>মোট রডের পরিমান: <span className="text-red-500">{Math.ceil(calculation.weightOfRod)} কেজি</span> | <span className="text-red-300">(আরও ৫-১০% অপচয় এর জন্য বাড়তি রডের দরকার হবে)</span></div>
+                  <div>{t("result.cement")}: <span className="text-red-500">{Math.ceil(calculation.amountOfCementBags)} {t("result.cementValue")}</span></div>
+                  <div> {t("result.sand")}: <span className="text-red-500">{Math.ceil(calculation.amountOfSand)} {t("result.sandValue")}</span></div>
+                  <div>{t("result.gravel")}: <span className="text-red-500">{Math.ceil(calculation.amountOfBricks)} {t("result.gravelValue")}</span></div>
+                  <div>{t("result.rod")}: <span className="text-red-500">{Math.ceil(calculation.weightOfRod)} {t("result.rodValue")}</span></div>
                 </div>
               ) : (
                 <div>

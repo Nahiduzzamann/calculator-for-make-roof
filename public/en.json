@@ -13,6 +13,17 @@
       "title": "Calculate now!!",
       "descriptions": "Please fill up all field very carefully. Set values according to units."
     },
+    "result":{
+      "cement": "Quantity of Cement",
+      "cementValue": "bags",
+      "sand": "Amount of Sand",
+      "sandValue": "cubic feet/cft",
+      "gravel": "Quantity of Gravel",
+      "gravelValue": "Bricks need for Gravel",
+      "rod": "Total rod weight",
+      "rodValue": "kg (An additional 5-10% wastage will require additional rods)"
+      
+    },
     "form":{
       "field1": "Length of roof (Feet)",
       "field2": "Width of roof (Feet)",
