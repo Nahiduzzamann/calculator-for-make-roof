@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { AuthContext } from "../../../provider/AuthProvider";
 
 const Calculations = () => {
+  const { user } = useContext(AuthContext);
+console.log(user);
   const { t } = useTranslation();
   const [cement, setCement] = useState(1);
   const [sand, setSand] = useState(2);
@@ -32,11 +35,15 @@ const Calculations = () => {
       const amountOfSand = (roofWetVolume * sand) / sumOfRatios;
       const amountOfGravel = (roofWetVolume * gravel) / sumOfRatios;
       const amountOfBricks = amountOfGravel / 0.068; //(১ টি ইট = ০.০৬৮ ঘনফিট/সিএফটি)
-      const amountOfRod = ((((length * 12) / 5)+1)*width) + ((((width * 12) / 5)+1)*length); //feet
+      const amountOfRod =
+        ((length * 12) / 5 + 1) * width + ((width * 12) / 5 + 1) * length; //feet
       const weightOfRod = ((rodD * rodD) / 532.2) * amountOfRod;
-      const calculation ={
-        amountOfCementBags,amountOfSand,amountOfBricks,weightOfRod
-      }
+      const calculation = {
+        amountOfCementBags,
+        amountOfSand,
+        amountOfBricks,
+        weightOfRod,
+      };
       setCalculation(calculation);
     } else {
       setCalculation(null);
@@ -45,18 +52,46 @@ const Calculations = () => {
 
   return (
     <div className="container mx-auto">
-      
       <div>
         <div className="hero min-h-screen">
           <div className="hero-content flex-col lg:flex-row-reverse">
             <div className="text-center lg:text-left">
               {calculation !== null ? (
-                <div className="text-white text-xl lg:text-2xl">
-                  <div>{t("result.cement")}: <span className="text-red-500">{Math.ceil(calculation.amountOfCementBags)} {t("result.cementValue")}</span></div>
-                  <div> {t("result.sand")}: <span className="text-red-500">{Math.ceil(calculation.amountOfSand)} {t("result.sandValue")}</span></div>
-                  <div>{t("result.gravel")}: <span className="text-red-500">{Math.ceil(calculation.amountOfBricks)} {t("result.gravelValue")}</span></div>
-                  <div>{t("result.rod")}: <span className="text-red-500">{Math.ceil(calculation.weightOfRod)} {t("result.rodValue")}</span></div>
-                </div>
+                user ? (
+                  <div className="text-white text-xl lg:text-2xl">
+                    <div>
+                      {t("result.cement")}:{" "}
+                      <span className="text-red-500">
+                        {Math.ceil(calculation.amountOfCementBags)}{" "}
+                        {t("result.cementValue")}
+                      </span>
+                    </div>
+                    <div>
+                      {" "}
+                      {t("result.sand")}:{" "}
+                      <span className="text-red-500">
+                        {Math.ceil(calculation.amountOfSand)}{" "}
+                        {t("result.sandValue")}
+                      </span>
+                    </div>
+                    <div>
+                      {t("result.gravel")}:{" "}
+                      <span className="text-red-500">
+                        {Math.ceil(calculation.amountOfBricks)}{" "}
+                        {t("result.gravelValue")}
+                      </span>
+                    </div>
+                    <div>
+                      {t("result.rod")}:{" "}
+                      <span className="text-red-500">
+                        {Math.ceil(calculation.weightOfRod)}{" "}
+                        {t("result.rodValue")}
+                      </span>
+                    </div>
+                  </div>
+                ) : (
+                  "please Login"
+                )
               ) : (
                 <div>
                   <h1 className="text-3xl lg:text-5xl font-bold text-white">

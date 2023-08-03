@@ -95,15 +95,15 @@ const Navbar = () => {
                   </NavLink>
                 </li>
                 <li className="text-white  hover:bg-gray-700 px-3 py-2 rounded-md lgxedium">
-                  <NavLink onClick={handleDropdown} to="/about">
+                  <a onClick={handleDropdown} href="https://nahiduzzaman-portfolio.web.app/">
                   {t('about')}
-                  </NavLink>
+                  </a>
                 </li>
 
                 <li className="text-white  hover:bg-gray-700 px-3 py-2 rounded-md lgxedium">
-                  <NavLink onClick={handleDropdown} to="/contact">
+                  <a onClick={handleDropdown} href="https://nahiduzzaman-portfolio.web.app/contact">
                   {t('contact')}
-                  </NavLink>
+                  </a>
                 </li>
               </ul>
             )}
@@ -118,11 +118,11 @@ const Navbar = () => {
               <NavLink to="/">{t('home')}</NavLink>
             </li>
             <li className="text-white  hover:bg-gray-700 py-2 rounded-md text-lg ">
-              <NavLink to="/about">{t('about')}</NavLink>
+              <a href="https://nahiduzzaman-portfolio.web.app/">{t('about')}</a>
             </li>
 
             <li className="text-white  hover:bg-gray-700 py-2 rounded-md text-lg ">
-              <NavLink to="/contact">{t('contact')}</NavLink>
+              <a href="https://nahiduzzaman-portfolio.web.app/contact">{t('contact')}</a>
             </li>
           </ul>
         </div>
