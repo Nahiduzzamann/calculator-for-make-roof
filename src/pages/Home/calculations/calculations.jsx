@@ -1,10 +1,11 @@
 import { useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AuthContext } from "../../../provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const Calculations = () => {
   const { user } = useContext(AuthContext);
-console.log(user);
+  console.log(user);
   const { t } = useTranslation();
   const [cement, setCement] = useState(1);
   const [sand, setSand] = useState(2);
@@ -90,7 +91,48 @@ console.log(user);
                     </div>
                   </div>
                 ) : (
-                  "please Login"
+                  <div className="relative">
+                    <Link
+                      to="/login"
+                      className="flex items-center justify-center absolute bg-opacity-70 bg-[#000000] h-full w-full rounded-lg"
+                    >
+                      {" "}
+                      <p className="text-white text-2xl hover:text-gray-400">
+                        Please LogIn to see result
+                      </p>{" "}
+                    </Link>
+                    <div className="text-white text-xl lg:text-2xl p-2">
+                      <div>
+                        {t("result.cement")}:{" "}
+                        <span className="text-[#c547470c]">
+                          {Math.ceil(calculation.amountOfCementBags)}{" "}
+                          {t("result.cementValue")}
+                        </span>
+                      </div>
+                      <div>
+                        {" "}
+                        {t("result.sand")}:{" "}
+                        <span className="text-[#c547470c]">
+                          {Math.ceil(calculation.amountOfSand)}{" "}
+                          {t("result.sandValue")}
+                        </span>
+                      </div>
+                      <div>
+                        {t("result.gravel")}:{" "}
+                        <span className="text-[#c547470c]">
+                          {Math.ceil(calculation.amountOfBricks)}{" "}
+                          {t("result.gravelValue")}
+                        </span>
+                      </div>
+                      <div>
+                        {t("result.rod")}:{" "}
+                        <span className="text-[#c547470c]">
+                          {Math.ceil(calculation.weightOfRod)}{" "}
+                          {t("result.rodValue")}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 )
               ) : (
                 <div>
